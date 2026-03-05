@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Villa Rosario</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="imagenes/logoVilla.png" alt="Logo Villa Rosario" id="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">VILLA ROSARIO</span>
+                    <span class="logo-subtitle">Comunidad Organizada</span>
+                </div>
+            </a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="consejo-comunal.html"><i class="fas fa-users"></i> Consejo Comunal</a></li>
+                <li><a href="articulos.html"><i class="fas fa-newspaper"></i> Noticias</a></li>
+                <li><a href="servicios.html"><i class="fas fa-bolt"></i> Servicios</a></li>
+                <li><a href="reportes.html"><i class="fas fa-flag"></i> Reportar Problema</a></li>
+                <li><a href="emprendedores.html"><i class="fas fa-store"></i> Emprendedores</a></li>
+                <li><a href="contacto.html" class="active"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Contacto</h1>
+            <p>Comunícate con el Consejo Comunal</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Información de contacto -->
+                <div>
+                    <h2 style="color: var(--color-azul);">Información de contacto</h2>
+                    <p><i class="fas fa-map-marker-alt"></i> Casa Comunal, Calle Principal, Villa Rosario</p>
+                    <p><i class="fas fa-phone"></i> 0412-1234567 (Presidente)</p>
+                    <p><i class="fas fa-envelope"></i> consejo@villarosario.org</p>
+                    <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 8am-12pm / 2pm-5pm</p>
+                    
+                    <h3 style="margin-top: 2rem;">Redes Sociales</h3>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="background: var(--color-azul); color: white; padding: 0.5rem 1rem; border-radius: 4px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="#" style="background: var(--color-azul); color: white; padding: 0.5rem 1rem; border-radius: 4px;"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#" style="background: var(--color-azul); color: white; padding: 0.5rem 1rem; border-radius: 4px;"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
+                </div>
+                <!-- Formulario de contacto -->
+                <div>
+                    <h2 style="color: var(--color-azul);">Envíanos un mensaje</h2>
+                    <form style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" placeholder="Nombre" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" placeholder="Correo electrónico" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <textarea rows="5" placeholder="Mensaje" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                        </div>
+                        <button type="submit" style="background: var(--color-azul); color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px;">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Comunidad Villa Rosario</h3>
+                    <p>Sector Sabilar, Parroquia Altagracia</p>
+                    <p>Municipio Sucre, Estado Sucre</p>
+                    <p>Fundada en 2009</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="consejo-comunal.html"><i class="fas fa-chevron-right"></i> Consejo Comunal</a></li>
+                        <li><a href="articulos.html"><i class="fas fa-chevron-right"></i> Noticias</a></li>
+                        <li><a href="servicios.html"><i class="fas fa-chevron-right"></i> Servicios Públicos</a></li>
+                        <li><a href="reportes.html"><i class="fas fa-chevron-right"></i> Reportar Problema</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto de Emergencia</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> Líderes Comunitarios: 0412-XXX-XXXX</li>
+                        <li><i class="fas fa-bolt"></i> CORPOELEC: 0800-ELECTRIC</li>
+                        <li><i class="fas fa-tint"></i> HIDROCARIBE: 0800-AGUA-NOW</li>
+                        <li><i class="fas fa-ambulance"></i> Emergencias: 911</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Grupo de WhatsApp</h3>
+                    <p>Únete al grupo oficial de la comunidad:</p>
+                    <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Unirse al Grupo</a>
+                    <div class="qr-code">
+                        <p>Escanea el código QR:</p>
+                        <div class="qr-placeholder"><i class="fas fa-qrcode"></i> QR</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Comunidad Villa Rosario. Proyecto UPTOS Clodosbaldo Russián.</p>
+                <p>Cumaná, Estado Sucre - República Bolivariana de Venezuela</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
