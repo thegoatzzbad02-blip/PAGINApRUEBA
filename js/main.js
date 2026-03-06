@@ -148,34 +148,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 })();
-// ===== MODAL DE ANUNCIO IMPORTANTE =====
+// ===== MODAL DE ANUNCIO IMPORTANTE (siempre visible) =====
 (function() {
     const modal = document.getElementById('anuncioModal');
     const cerrarBtn = document.getElementById('cerrarModal');
     const contadorSpan = document.getElementById('contador');
     
-    // Si no existe el modal, salir
     if (!modal) return;
 
-    // Variable para controlar el intervalo
     let intervalo;
     let segundos = 7; // Duración del contador
 
-    // Función para mostrar el modal (solo si no se ha mostrado en esta sesión)
     function mostrarModal() {
-        // Comprobar si ya se mostró antes en esta sesión
-        
-    
+        // Reiniciar contador
+        segundos = 7;
+        if (contadorSpan) contadorSpan.textContent = segundos;
 
         modal.classList.add('mostrar');
-        sessionStorage.setItem('anuncioMostrado', 'true');
 
-        // Actualizar contador cada segundo
         intervalo = setInterval(() => {
             segundos--;
-            if (contadorSpan) {
-                contadorSpan.textContent = segundos;
-            }
+            if (contadorSpan) contadorSpan.textContent = segundos;
             if (segundos <= 0) {
                 clearInterval(intervalo);
                 cerrarModal();
@@ -183,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    // Función para cerrar el modal
     function cerrarModal() {
         modal.classList.remove('mostrar');
         if (intervalo) {
@@ -191,18 +183,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Evento para cerrar con el botón
     if (cerrarBtn) {
         cerrarBtn.addEventListener('click', cerrarModal);
     }
 
-    // Evento para cerrar haciendo clic fuera del contenido
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             cerrarModal();
         }
     });
 
-    // Mostrar el modal cuando la página haya cargado completamente
     window.addEventListener('load', mostrarModal);
 })();
