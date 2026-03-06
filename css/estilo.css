@@ -1723,7 +1723,7 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.9rem;
     }
 }
-/* ===== MODAL DE ANUNCIO IMPORTANTE ===== */
+/* ===== MODAL DE ANUNCIO - VERSIÓN DEFINITIVA ===== */
 .modal {
     display: none;
     position: fixed;
@@ -1744,10 +1744,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-contenido {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    background: transparent;
-    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;  /* Ancho como el ejemplo, más cuadrado */
+    max-height: 80vh;
+    background: white;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     animation: modal-aparecer 0.4s ease;
@@ -1767,9 +1768,10 @@ h1, h2, h3, h4, h5, h6 {
 .modal-imagen {
     width: 100%;
     height: auto;
-    max-height: 80vh;
-    object-fit: contain;
+    max-height: 70vh;  /* La imagen ocupa la mayor parte */
+    object-fit: contain;  /* Para que se vea completa sin recortes */
     display: block;
+    background: #f0f0f0;  /* Fondo gris por si la imagen no cubre todo */
 }
 
 .modal-cerrar {
@@ -1811,39 +1813,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
-.modal-pie {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-/* Responsive para móviles - imagen más grande */
+/* Responsive para móviles */
 @media (max-width: 768px) {
+    .modal-contenido {
+        max-width: 95%;
+        max-height: 90vh;
+    }
+    .modal-imagen {
+        max-height: 80vh;
+    }
     .modal-cerrar {
         width: 40px;
         height: 40px;
         font-size: 1rem;
         top: 10px;
         right: 10px;
-    }
-    .modal-pie {
-        padding: 15px;
-        font-size: 1rem;
-    }
-    .modal-contenido {
-        max-width: 95%;
-        height: auto;
-    }
-    .modal-imagen {
-        max-height: 85vh; /* Ocupa casi toda la pantalla */
-        width: auto;
     }
 }
 
@@ -1862,12 +1846,5 @@ h1, h2, h3, h4, h5, h6 {
         width: 20px;
         height: 20px;
         font-size: 0.8rem;
-    }
-    .modal-imagen {
-        max-height: 90vh;
-    }
-    .modal-pie {
-        padding: 10px;
-        font-size: 0.9rem;
     }
 }
