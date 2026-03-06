@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad Villa Rosario - Plataforma Informativa</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="imagenes/logoVilla.png">.
+
+
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="imagenes/logoVilla.png" alt="Logo Villa Rosario" id="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">VILLA ROSARIO</span>
+                    <span class="logo-subtitle">Comunidad Organizada</span>
+                </div>
+            </a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="consejo-comunal.html"><i class="fas fa-users"></i> Consejo Comunal</a></li>
+                <li><a href="articulos.html"><i class="fas fa-newspaper"></i> Noticias</a></li>
+                <li><a href="servicios.html"><i class="fas fa-bolt"></i> Servicios</a></li>
+                <li><a href="reportes.html"><i class="fas fa-flag"></i> Reportar Problema</a></li>
+                <li><a href="emprendedores.html"><i class="fas fa-store"></i> Emprendedores</a></li>
+                <li><a href="conctato.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Encabezado Hero - Versión más compacta -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Bienvenidos a Villa Rosario</h1>
+            <p class="hero-subtitle">Sector Sabilar, Parroquia Altagracia, Municipio Sucre</p>
+            <p class="hero-description">Una plataforma informativa creada para fortalecer la comunicación y organización de nuestra comunidad</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-home"></i>
+                    <span>136 Familias</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span>335 Habitantes</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-road"></i>
+                    <span>4 Calles</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Fundada en 2009</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Alertas - Diseño uniforme mejorado -->
+<section class="alertas">
+    <div class="container">
+        <h2><i class="fas fa-bullhorn"></i> Alertas Comunitarias</h2>
+        
+        <div class="alertas-grid">
+            <!-- Alerta 1 (roja) -->
+            <div class="alerta-item">
+                <div class="alerta-header">
+                    <div class="alerta-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="alerta-titulo">¡Corte de Agua!</h3>
+                </div>
+                <div class="alerta-contenido">
+                    <p class="alerta-descripcion">
+                        Este viernes 22 de marzo, de 8:00 a 16:00 horas, 
+                        mantenimiento programado por HIDROCARIBE. 
+                        Almacena agua con anticipación.
+                    </p>
+                    <div class="alerta-fecha">
+                        <i class="far fa-calendar"></i>
+                        Publicado: 12/03/2024
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alerta 2 (azul) -->
+            <div class="alerta-item">
+                <div class="alerta-header">
+                    <div class="alerta-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="alerta-titulo">Asamblea General</h3>
+                </div>
+                <div class="alerta-contenido">
+                    <p class="alerta-descripcion">
+                        Este sábado 16 de marzo a las 10:00 AM en la Casa Comunal. 
+                        Trataremos temas sobre servicios públicos y proyectos.
+                    </p>
+                    <div class="alerta-fecha">
+                        <i class="far fa-calendar"></i>
+                        Publicado: 10/03/2024
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alerta 3 (verde) -->
+            <div class="alerta-item">
+                <div class="alerta-header">
+                    <div class="alerta-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="alerta-titulo">Jornada de Salud</h3>
+                </div>
+                <div class="alerta-contenido">
+                    <p class="alerta-descripcion">
+                        Vacunación para niños y adultos este domingo 24 de marzo 
+                        en la Casa Comunal. Trae tu carnet.
+                    </p>
+                    <div class="alerta-fecha">
+                        <i class="far fa-calendar"></i>
+                        Publicado: 08/03/2024
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Sección Carrusel de Imágenes (reemplaza a Comités) -->
+<section class="carrusel">
+    <div class="container">
+        <h2><i class="fas fa-images"></i> Galería Comunitaria</h2>
+        <p class="section-subtitle">Momentos destacados de nuestra comunidad</p>
+        
+        <div class="carrusel-contenedor">
+            <div class="carrusel-slides">
+                <div class="carrusel-slide active">
+                    <img src="imagenes/carrusel1.png" alt="Asamblea comunitaria">
+                    <div class="carrusel-caption">
+                        <h3>Asamblea General 2026</h3>
+                        <p>Participación masiva de los vecinos</p>
+                    </div>
+                </div>
+                <div class="carrusel-slide">
+                    <img src="imagenes/carrusel1.png" alt="Jornada de salud">
+                    <div class="carrusel-caption">
+                        <h3>Jornada de Vacunación</h3>
+                        <p>Más de 100 niños vacunados</p>
+                    </div>
+                </div>
+                <div class="carrusel-slide">
+                    <img src="img/carrusel3.jpg" alt="Entrega de CLAP">
+                    <div class="carrusel-caption">
+                        <h3>Entrega de Alimentos</h3>
+                        <p>Apoyo a las familias de la comunidad</p>
+                    </div>
+                </div>
+                <div class="carrusel-slide">
+                    <img src="img/carrusel4.jpg" alt="Limpieza comunitaria">
+                    <div class="carrusel-caption">
+                        <h3>Jornada de Limpieza</h3>
+                        <p>Embelleciendo nuestros espacios</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botones de navegación -->
+            <button class="carrusel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carrusel-next"><i class="fas fa-chevron-right"></i></button>
+            
+            <!-- Indicadores (puntos) -->
+            <div class="carrusel-indicadores">
+                <span class="indicador active" data-slide="0"></span>
+                <span class="indicador" data-slide="1"></span>
+                <span class="indicador" data-slide="2"></span>
+                <span class="indicador" data-slide="3"></span>
+            </div>
+        </div>
+    </div>
+</section>
+   <!-- Sección de Noticias Destacadas (mejorada) -->
+<!-- Sección de Noticias Destacadas - Mejorada -->
+<section class="noticias">
+    <div class="container">
+        <h2>Últimas Noticias de la Comunidad</h2>
+        <p class="section-subtitle">Información oficial del Consejo Comunal</p>
+        
+        <div class="noticias-grid">
+            <!-- Noticia 1: Servicios Públicos (rojo) -->
+            <article class="noticia-card" data-categoria="servicios">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">Servicios Públicos</span>
+                    <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 10 Mar 2024</span>
+                </div>
+                <div class="noticia-body">
+                    <h3>Actualización sobre el Servicio de Aseo Urbano</h3>
+                    <p>Se han establecido nuevos acuerdos con SERVIA MSA para mejorar la frecuencia de recolección de desechos sólidos. La comunidad organizada supervisará el cumplimiento.</p>
+                </div>
+                <div class="noticia-footer">
+                    <a href="noticia.html?id=1" class="btn-leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- Noticia 2: Infraestructura (naranja) -->
+            <article class="noticia-card" data-categoria="infraestructura">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">Infraestructura</span>
+                    <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 5 Mar 2024</span>
+                </div>
+                <div class="noticia-body">
+                    <h3>Avances en la Gestión para el Asfaltado</h3>
+                    <p>El Consejo Comunal ha presentado formalmente la solicitud para el asfaltado de las 4 calles principales. Se espera respuesta en los próximos 30 días.</p>
+                </div>
+                <div class="noticia-footer">
+                    <a href="noticia.html?id=2" class="btn-leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- Noticia 3: CLAP (verde) -->
+            <article class="noticia-card" data-categoria="clap">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">CLAP</span>
+                    <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 28 Feb 2024</span>
+                </div>
+                <div class="noticia-body">
+                    <h3>Próxima Entrega del CLAP</h3>
+                    <p>Se informa a la comunidad que la próxima entrega de alimentos está programada para la última semana de marzo. Estén atentos a las convocatorias por calle.</p>
+                </div>
+                <div class="noticia-footer">
+                    <a href="noticia.html?id=3" class="btn-leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+        
+        <div class="text-center">
+            <a href="articulos.html" class="btn-ver-todas">Ver todas las noticias</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Sección de Servicios Públicos -->
+    <section class="servicios-publicos">
+        <div class="container">
+            <h2>Estado de los Servicios Públicos</h2>
+            
+            <div class="servicios-estado">
+                <div class="servicio-estado">
+                    <div class="servicio-header">
+                        <i class="fas fa-tint"></i>
+                        <h3>Agua Potable</h3>
+                    </div>
+                    <div class="servicio-info">
+                        <span class="estado-badge estado-deficiente">Deficiente</span>
+                        <p>Proveedor: HIDROCARIBE</p>
+                        <p>Última actualización: Hoy 8:00 AM</p>
+                    </div>
+                </div>
+                
+                <div class="servicio-estado">
+                    <div class="servicio-header">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Electricidad</h3>
+                    </div>
+                    <div class="servicio-info">
+                        <span class="estado-badge estado-regular">Regular</span>
+                        <p>Proveedor: CORPOELEC</p>
+                        <p>Última actualización: Ayer 6:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="servicio-estado">
+                    <div class="servicio-header">
+                        <i class="fas fa-trash-alt"></i>
+                        <h3>Aseo Urbano</h3>
+                    </div>
+                    <div class="servicio-info">
+                        <span class="estado-badge estado-critico">Crítico</span>
+                        <p>Proveedor: SERVIA MSA</p>
+                        <p>Última actualización: 05/03/2024</p>
+                    </div>
+                </div>
+                
+                <div class="servicio-estado">
+                    <div class="servicio-header">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Internet</h3>
+                    </div>
+                    <div class="servicio-info">
+                        <span class="estado-badge estado-optimo">Óptimo</span>
+                        <p>Proveedores: Privados</p>
+                        <p>Última actualización: Hoy 9:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proyecto UPTOS -->
+    <section class="proyecto-uptos">
+        <div class="container">
+            <div class="proyecto-content">
+                <div class="proyecto-info">
+                    <h2>Proyecto Universitario UPTOS</h2>
+                    <p>Esta plataforma web es parte del proyecto de investigación:</p>
+                    <p class="proyecto-titulo">"Implementación de una plataforma web informativa que sirva como medio alternativo de comunicación para los habitantes de la comunidad de Villa Rosario"</p>
+                    
+                    <div class="proyecto-datos">
+                        <h3>Estudiantes Investigadores:</h3>
+                        <ul>
+                            <li>Diego David Acuña Chacón C.I 32123210</li>
+                            <li>Samuel Enrique Maestre Marcano C.I 33683225</li>
+                            <li>Darío Rafael Mendoza Millán C.I 32449201</li>
+                            <li>Robert Jesús Mundaray Rincones C.I 32746996</li>
+                        </ul>
+                        
+                        <h3>Profesor Asesor:</h3>
+                        <p>Rosiris Álvarez</p>
+                        <p>Raúl Canelón</p>
+                    </div>
+                </div>
+                
+                <div class="proyecto-logos">
+                    <div class="logo-institucion">
+                        <h4>Universidad Politécnica Territorial del Oeste de Sucre</h4>
+                        <p>"Clodosbaldo Russián"</p>
+                    </div>
+                    <div class="logo-institucion">
+                        <h4>Programa Nacional de Formación en Informática</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-grid" style="grid-template-columns: 1fr 1fr 1fr;"> <!-- 3 columnas iguales -->
+            <!-- Columna 1: Información de la comunidad -->
+            <div class="footer-col">
+                <h3>Comunidad Villa Rosario</h3>
+                <p>Sector Sabilar, Parroquia Altagracia</p>
+                <p>Municipio Sucre, Estado Sucre</p>
+                <p>Fundada en 2009</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Proyecto UPTOS con logos -->
+            <div class="footer-col">
+                <h3>Proyecto Universitario</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem;">
+                    <!-- Logo UPTOS (reemplaza con tu imagen) -->
+                    <img src="imagenes/logo-uptos.png" alt="UPTOS" style="height: 60px; width: auto;">
+                    <!-- Logo PNF Informática (reemplaza con tu imagen) -->
+                   
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Estudiantes de Informática<br>
+                    UPTOS "Clodosbaldo Russián"
+                </p>
+            </div>
+
+            <!-- Columna 3: Grupo WhatsApp -->
+            <div class="footer-col">
+                <h3>Conéctate</h3>
+                <p>Únete al grupo oficial:</p>
+                <a href="#" class="btn-whatsapp" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i> Unirse al grupo
+                </a>
+                <div class="qr-code" style="margin-top: 1rem;">
+                    <p>Escanea el código QR:</p>
+                    <div class="qr-placeholder" style="background: white; padding: 0.5rem; display: inline-block; border-radius: 8px;">
+                        <i class="fas fa-qrcode" style="font-size: 3rem; color: black;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea inferior con copyright -->
+        <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p style="font-size: 0.9rem;">&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">Cumaná, Estado Sucre - Venezuela</p>
+        </div>
+    </div>
+</footer>
+<!-- MODAL DE ANUNCIO IMPORTANTE -->
+<div id="anuncioModal" class="modal">
+    <div class="modal-contenido">
+        <!-- Botón de cierre con contador -->
+        <button class="modal-cerrar" id="cerrarModal">
+            <span class="contador" id="contador">7</span> ✕
+        </button>
+        <!-- Imagen del anuncio (cambia la ruta por la que necesites) -->
+        <img src="imagenes/anuncio.png" alt="Anuncio importante" class="modal-imagen">
+        <!-- Opcional: puedes agregar un texto debajo de la imagen -->
+        <div class="modal-pie">
+            <p>¡No te pierdas esta oportunidad!</p>
+        </div>
+    </div>
+</div>
+    <script src="js/main.js"></script>
+</body>
+</html>

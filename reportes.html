@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Problema - Villa Rosario</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="imagenes/logoVilla.png" alt="Logo Villa Rosario" id="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">VILLA ROSARIO</span>
+                    <span class="logo-subtitle">Comunidad Organizada</span>
+                </div>
+            </a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="consejo-comunal.html"><i class="fas fa-users"></i> Consejo Comunal</a></li>
+                <li><a href="articulos.html"><i class="fas fa-newspaper"></i> Noticias</a></li>
+                <li><a href="servicios.html"><i class="fas fa-bolt"></i> Servicios</a></li>
+                <li><a href="reportes.html" class="active"><i class="fas fa-flag"></i> Reportar Problema</a></li>
+                <li><a href="emprendedores.html"><i class="fas fa-store"></i> Emprendedores</a></li>
+                <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Reportar un Problema</h1>
+            <p>Haz llegar tus inquietudes al Consejo Comunal</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 700px;">
+            <form style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--sombra-media);">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Nombre completo</label>
+                    <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Teléfono de contacto</label>
+                    <input type="tel" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Calle / Sector</label>
+                    <select style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                        <option>Calle 1</option>
+                        <option>Calle 2</option>
+                        <option>Calle 3</option>
+                        <option>Calle 4</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Tipo de problema</label>
+                    <select style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                        <option>Agua potable</option>
+                        <option>Electricidad</option>
+                        <option>Aseo urbano</option>
+                        <option>Alumbrado público</option>
+                        <option>Seguridad</option>
+                        <option>Infraestructura (calles)</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Descripción del problema</label>
+                    <textarea rows="5" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" required></textarea>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox"> Deseo recibir notificaciones sobre el estado de mi reporte
+                    </label>
+                </div>
+                <button type="submit" style="background: var(--color-azul); color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">Enviar reporte</button>
+            </form>
+            <p style="margin-top: 1rem; color: var(--color-gris-medio);">Tu reporte será revisado por los voceros del consejo comunal y recibirás seguimiento.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-grid" style="grid-template-columns: 1fr 1fr 1fr;"> <!-- 3 columnas iguales -->
+            <!-- Columna 1: Información de la comunidad -->
+            <div class="footer-col">
+                <h3>Comunidad Villa Rosario</h3>
+                <p>Sector Sabilar, Parroquia Altagracia</p>
+                <p>Municipio Sucre, Estado Sucre</p>
+                <p>Fundada en 2009</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Proyecto UPTOS con logos -->
+            <div class="footer-col">
+                <h3>Proyecto Universitario</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem;">
+                    <!-- Logo UPTOS (reemplaza con tu imagen) -->
+                    <img src="imagenes/logo-uptos.png" alt="UPTOS" style="height: 60px; width: auto;">
+                    <!-- Logo PNF Informática (reemplaza con tu imagen) -->
+                   
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Estudiantes de Informática<br>
+                    UPTOS "Clodosbaldo Russián"
+                </p>
+            </div>
+
+            <!-- Columna 3: Grupo WhatsApp -->
+            <div class="footer-col">
+                <h3>Conéctate</h3>
+                <p>Únete al grupo oficial:</p>
+                <a href="#" class="btn-whatsapp" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i> Unirse al grupo
+                </a>
+                <div class="qr-code" style="margin-top: 1rem;">
+                    <p>Escanea el código QR:</p>
+                    <div class="qr-placeholder" style="background: white; padding: 0.5rem; display: inline-block; border-radius: 8px;">
+                        <i class="fas fa-qrcode" style="font-size: 3rem; color: black;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea inferior con copyright -->
+        <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p style="font-size: 0.9rem;">&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">Cumaná, Estado Sucre - Venezuela</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

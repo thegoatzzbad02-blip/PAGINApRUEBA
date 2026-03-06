@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticia - Villa Rosario</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos adicionales solo para la página de noticia */
+        .noticia-completa {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--sombra-media);
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .noticia-completa-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .noticia-completa-titulo {
+            font-size: 2.2rem;
+            color: var(--color-gris-oscuro);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .noticia-metadata {
+            display: flex;
+            gap: 2rem;
+            color: var(--color-gris-medio);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .noticia-metadata i {
+            margin-right: 5px;
+            color: var(--color-azul);
+        }
+        
+        .noticia-categoria-badge {
+            display: inline-block;
+            background: var(--color-rojo);
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .noticia-completa-imagen {
+            width: 100%;
+            max-height: 450px;
+            overflow: hidden;
+        }
+        
+        .noticia-completa-imagen img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .noticia-completa-contenido {
+            padding: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gris-oscuro);
+        }
+        
+        .noticia-completa-contenido p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .noticia-compartir {
+            padding: 1.5rem 2rem 2rem;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .btn-compartir {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion-rapida);
+        }
+        
+        .btn-wsp { background: #25D366; color: white; }
+        .btn-fb { background: #1877F2; color: white; }
+        .btn-tw { background: #1DA1F2; color: white; }
+        
+        .btn-compartir:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .noticia-navegacion {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .noticia-nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-azul);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transicion-rapida);
+        }
+        
+        .noticia-nav-link:hover {
+            background: var(--color-gris-claro);
+        }
+    </style>
+</head>
+<body>
+   <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="imagenes/logoVilla.png" alt="Logo Villa Rosario" id="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">VILLA ROSARIO</span>
+                    <span class="logo-subtitle">Comunidad Organizada</span>
+                </div>
+            </a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="consejo-comunal.html"><i class="fas fa-users"></i> Consejo Comunal</a></li>
+                <li><a href="articulos.html"><i class="fas fa-newspaper"></i> Noticias</a></li>
+                <li><a href="servicios.html"><i class="fas fa-bolt"></i> Servicios</a></li>
+                <li><a href="reportes.html"><i class="fas fa-flag"></i> Reportar Problema</a></li>
+                <li><a href="emprendedores.html"><i class="fas fa-store"></i> Emprendedores</a></li>
+                <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="container" style="max-width: 900px;">
+            <article class="noticia-completa">
+                <div class="noticia-completa-header">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <span class="noticia-categoria-badge">Servicios Públicos</span>
+                        <span><i class="far fa-calendar-alt"></i> 15 de marzo de 2024</span>
+                    </div>
+                    <h1 class="noticia-completa-titulo">Actualización sobre el servicio de agua potable en Villa Rosario</h1>
+                    <div class="noticia-metadata">
+                        <span><i class="fas fa-user"></i> Consejo Comunal</span>
+                        <span><i class="fas fa-clock"></i> Tiempo de lectura: 3 min</span>
+                    </div>
+                </div>
+                
+                <div class="noticia-completa-imagen">
+                    <img src="imagenes/imgr1.png" alt="Servicio de agua">
+                </div>
+                
+                <div class="noticia-completa-contenido">
+                    <p><strong>Villa Rosario, 15 de marzo de 2024</strong> – La Mesa Técnica de Agua de la comunidad informa a todos los habitantes que, debido a trabajos de mantenimiento programados por HIDROCARIBE, el servicio de agua potable será suspendido el próximo viernes 22 de marzo desde las 8:00 am hasta las 4:00 pm.</p>
+                    
+                    <p>Estos trabajos son necesarios para mejorar la presión y calidad del agua en toda la comunidad. Se recomienda a los vecinos almacenar agua con anticipación para cubrir sus necesidades básicas durante el corte. La empresa HIDROCARIBE ha asegurado que los trabajos se realizarán en el menor tiempo posible.</p>
+                    
+                    <p>Además, se recuerda a la comunidad que el uso racional del agua es responsabilidad de todos. Evite el desperdicio y reporte cualquier fuga o anomalía a los líderes de calle.</p>
+                    
+                    <p>Para más información, pueden comunicarse con los voceros de la Mesa Técnica de Agua a través de los números: 0412-1234567 (Juan Pérez) o 0414-7654321 (María Rodríguez).</p>
+                    
+                    <p>Agradecemos su comprensión y colaboración.</p>
+                </div>
+                
+                <!-- Botones para compartir - Versión mejorada -->
+<div class="compartir-noticia">
+    <span class="compartir-titulo"><i class="fas fa-share-alt"></i> Compartir esta noticia:</span>
+    <div class="compartir-botones">
+        <!-- WhatsApp -->
+        <a href="#" class="compartir-btn compartir-wsp" id="share-wsp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        
+        <!-- Facebook -->
+        <a href="#" class="compartir-btn compartir-fb" id="share-fb" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+        </a>
+        
+        <!-- Twitter / X -->
+        <a href="#" class="compartir-btn compartir-tw" id="share-tw" target="_blank">
+            <i class="fab fa-twitter"></i>
+            <span>Twitter</span>
+        </a>
+        
+        <!-- Copiar enlace (nuevo) -->
+        <button class="compartir-btn compartir-copy" id="copy-link">
+            <i class="fas fa-link"></i>
+            <span>Copiar enlace</span>
+        </button>
+    </div>
+    <!-- Mensaje de confirmación al copiar -->
+    <div class="copy-message" id="copyMessage">¡Enlace copiado!</div>
+</div>
+            </article>
+            
+            <!-- Navegación entre noticias -->
+            <div class="noticia-navegacion">
+                <a href="noticia.html?id=2" class="noticia-nav-link"><i class="fas fa-chevron-left"></i> Noticia anterior</a>
+                <a href="noticia.html?id=3" class="noticia-nav-link">Noticia siguiente <i class="fas fa-chevron-right"></i></a>
+            </div>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="articulos.html" class="btn-ver-todas" style="background: var(--color-azul); border-color: var(--color-azul);"><i class="fas fa-newspaper"></i> Volver a todas las noticias</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-grid" style="grid-template-columns: 1fr 1fr 1fr;"> <!-- 3 columnas iguales -->
+            <!-- Columna 1: Información de la comunidad -->
+            <div class="footer-col">
+                <h3>Comunidad Villa Rosario</h3>
+                <p>Sector Sabilar, Parroquia Altagracia</p>
+                <p>Municipio Sucre, Estado Sucre</p>
+                <p>Fundada en 2009</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Proyecto UPTOS con logos -->
+            <div class="footer-col">
+                <h3>Proyecto Universitario</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem;">
+                    <!-- Logo UPTOS (reemplaza con tu imagen) -->
+                    <img src="imagenes/logo-uptos.png" alt="UPTOS" style="height: 60px; width: auto;">
+                    <!-- Logo PNF Informática (reemplaza con tu imagen) -->
+                   
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Estudiantes de Informática<br>
+                    UPTOS "Clodosbaldo Russián"
+                </p>
+            </div>
+
+            <!-- Columna 3: Grupo WhatsApp -->
+            <div class="footer-col">
+                <h3>Conéctate</h3>
+                <p>Únete al grupo oficial:</p>
+                <a href="#" class="btn-whatsapp" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i> Unirse al grupo
+                </a>
+                <div class="qr-code" style="margin-top: 1rem;">
+                    <p>Escanea el código QR:</p>
+                    <div class="qr-placeholder" style="background: white; padding: 0.5rem; display: inline-block; border-radius: 8px;">
+                        <i class="fas fa-qrcode" style="font-size: 3rem; color: black;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea inferior con copyright -->
+        <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p style="font-size: 0.9rem;">&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">Cumaná, Estado Sucre - Venezuela</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>s
+</body>
+</html>ss
