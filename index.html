@@ -399,13 +399,18 @@
 <!-- MODAL DE ANUNCIO IMPORTANTE -->
 <div id="anuncioModal" class="modal">
     <div class="modal-contenido">
-        <!-- Botón de cierre con contador -->
         <button class="modal-cerrar" id="cerrarModal">
             <span class="contador" id="contador">7</span> ✕
         </button>
-        <!-- Imagen del anuncio (cambia la ruta por la que necesites) -->
-        <img src="imagenes/anuncio.png" alt="Anuncio importante" class="modal-imagen">
-        <!-- Opcional: puedes agregar un texto debajo de la imagen -->
+        <!-- Imagen adaptable -->
+        <picture>
+            <!-- Para móviles (máx 768px) usa imagen vertical -->
+            <source media="(max-width: 768px)" srcset="imagenes/anuncio11.png">
+            <!-- Para escritorio usa imagen horizontal -->
+            <source media="(min-width: 769px)" srcset="imagenes/anuncio11.png">
+            <!-- Imagen por defecto (fallback) -->
+            <img src="imagenes/anuncio11.png" alt="Anuncio importante" class="modal-imagen">
+        </picture>
         <div class="modal-pie">
             <p>¡No te pierdas esta oportunidad!</p>
         </div>
