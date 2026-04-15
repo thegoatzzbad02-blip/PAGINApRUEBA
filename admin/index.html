@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrador - Villa Rosario</title>
-    <script>
-        window.CMS_MANUAL_INIT = true;
-    </script>
 </head>
 <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
@@ -101,6 +98,89 @@
                                             { label: "Descripción", name: "descripcion", widget: "text" },
                                             { label: "Tipo", name: "tipo", widget: "select", options: ["urgente", "info", "evento"] },
                                             { label: "Fecha", name: "fecha", widget: "datetime" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: "eventos",
+                        label: "Eventos",
+                        files: [
+                            {
+                                name: "lista-eventos",
+                                label: "Lista de Eventos",
+                                file: "_data/eventos.yml",
+                                fields: [
+                                    {
+                                        label: "Eventos",
+                                        name: "eventos",
+                                        widget: "list",
+                                        fields: [
+                                            { label: "Título", name: "titulo", widget: "string" },
+                                            { label: "Fecha y hora", name: "fecha_hora", widget: "datetime" },
+                                            { label: "Lugar", name: "lugar", widget: "string" },
+                                            { label: "Descripción", name: "descripcion", widget: "text" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: "servicios",
+                        label: "Servicios Públicos",
+                        files: [
+                            {
+                                name: "estado-servicios",
+                                label: "Estado de Servicios",
+                                file: "_data/servicios.yml",
+                                fields: [
+                                    {
+                                        label: "Agua",
+                                        name: "agua",
+                                        widget: "object",
+                                        fields: [
+                                            { label: "Estado", name: "estado", widget: "select", options: ["deficiente", "regular", "critico", "optimo"] },
+                                            { label: "Texto adicional", name: "texto", widget: "text", required: false }
+                                        ]
+                                    },
+                                    {
+                                        label: "Electricidad",
+                                        name: "electricidad",
+                                        widget: "object",
+                                        fields: [
+                                            { label: "Estado", name: "estado", widget: "select", options: ["deficiente", "regular", "critico", "optimo"] },
+                                            { label: "Texto adicional", name: "texto", widget: "text", required: false }
+                                        ]
+                                    },
+                                    {
+                                        label: "Aseo",
+                                        name: "aseo",
+                                        widget: "object",
+                                        fields: [
+                                            { label: "Estado", name: "estado", widget: "select", options: ["deficiente", "regular", "critico", "optimo"] },
+                                            { label: "Texto adicional", name: "texto", widget: "text", required: false }
+                                        ]
+                                    },
+                                    {
+                                        label: "Internet",
+                                        name: "internet",
+                                        widget: "object",
+                                        fields: [
+                                            { label: "Estado", name: "estado", widget: "select", options: ["deficiente", "regular", "critico", "optimo"] },
+                                            { label: "Texto adicional", name: "texto", widget: "text", required: false }
+                                        ]
+                                    },
+                                    {
+                                        label: "Gestiones",
+                                        name: "gestiones",
+                                        widget: "list",
+                                        summary: "{{fields.fecha}} - {{fields.descripcion}}",
+                                        fields: [
+                                            { label: "Fecha", name: "fecha", widget: "date" },
+                                            { label: "Descripción", name: "descripcion", widget: "text" }
                                         ]
                                     }
                                 ]
