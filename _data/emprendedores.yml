@@ -1,0 +1,6 @@
+emprendedores:
+  - nombre: Panaderia el Negocio
+    imagen: /uploads/emprendedor1.png
+    descripcion: Los mejores panes de la ciudad
+    telefono: "04128400235"
+    instagram: "@eltigre"
