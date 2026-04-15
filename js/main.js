@@ -1,197 +1,123 @@
-// js/main.js
+// ==================== LIBRERÍAS ====================
+// Asegúrate de incluir en cada HTML:
+// <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+// <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-// Menú móvil: el funcionamiento ya está dado por el CSS (checkbox)
-// Podemos agregar un cierre automático al hacer clic en un enlace (opcional)
+// ==================== FUNCIONES DE CARGA ====================
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Cerrar menú al hacer clic en un enlace (para móviles)
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    const menuToggle = document.getElementById('menu-toggle');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (menuToggle && menuToggle.checked) {
-                menuToggle.checked = false;
-            }
+async function cargarConfiguracion() {
+    try {
+        const res = await fetch('/_data/configuracion.yml');
+        if (!res.ok) throw new Error('No se pudo cargar configuración');
+        const texto = await res.text();
+        const data = jsyaml.load(texto);
+        // Actualizar elementos (ajusta los IDs según tu HTML)
+        const telefonoElem = document.getElementById('telefono-contacto');
+        if (telefonoElem) telefonoElem.innerText = data.telefono || 'No disponible';
+        const emailElem = document.getElementById('email-contacto');
+        if (emailElem) emailElem.innerText = data.email || 'No disponible';
+        const direccionElem = document.getElementById('direccion-contacto');
+        if (direccionElem) direccionElem.innerText = data.direccion || 'No disponible';
+        const horarioElem = document.getElementById('horario-atencion');
+        if (horarioElem) horarioElem.innerText = data.horario || 'No disponible';
+        const wspLink = document.getElementById('whatsapp-group-link');
+        if (wspLink && data.whatsapp_url) wspLink.href = data.whatsapp_url;
+    } catch (error) {
+        console.error('Error cargando configuración:', error);
+    }
+}
+
+async function cargarEmprendedores() {
+    try {
+        const res = await fetch('/_data/emprendedores.yml');
+        if (!res.ok) throw new Error('No se pudo cargar emprendedores');
+        const texto = await res.text();
+        const data = jsyaml.load(texto);
+        const emprendedores = data.emprendedores || [];
+        const contenedor = document.querySelector('.emprendedores-grid');
+        if (!contenedor) return;
+        let html = '';
+        emprendedores.forEach(emp => {
+            html += `
+                <div class="emprendedor-card">
+                    <div class="emprendedor-imagen">
+                        <img src="${emp.imagen || 'img/default.jpg'}" alt="${emp.nombre}" loading="lazy">
+                    </div>
+                    <div class="emprendedor-info">
+                        <h3>${escapeHtml(emp.nombre)}</h3>
+                        <p class="emprendedor-descripcion">${escapeHtml(emp.descripcion)}</p>
+                        <div class="emprendedor-contacto">
+                            ${emp.telefono ? `<p><i class="fas fa-phone"></i> ${emp.telefono}</p>` : ''}
+                            ${emp.whatsapp ? `<p><i class="fab fa-whatsapp"></i> ${emp.whatsapp}</p>` : ''}
+                            ${emp.instagram ? `<p><i class="fab fa-instagram"></i> ${emp.instagram}</p>` : ''}
+                            ${emp.facebook ? `<p><i class="fab fa-facebook"></i> ${emp.facebook}</p>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
         });
-    });
+        contenedor.innerHTML = html;
+    } catch (error) {
+        console.error('Error cargando emprendedores:', error);
+        document.querySelector('.emprendedores-grid').innerHTML = '<p>Error al cargar emprendedores.</p>';
+    }
+}
 
-    // Aquí más adelante se cargarán los datos dinámicos (noticias, etc.)
-    console.log('Página cargada. Lista para integrar CMS.');
+async function cargarNoticias() {
+    // Implementación similar (usa GitHub API o lee los archivos .md)
+    console.log('Función cargarNoticias - pendiente de implementar');
+}
+
+async function cargarAlertas() {
+    try {
+        const res = await fetch('/_data/alertas.yml');
+        if (!res.ok) throw new Error('No se pudieron cargar alertas');
+        const texto = await res.text();
+        const data = jsyaml.load(texto);
+        const alertas = data.alertas || [];
+        const contenedor = document.querySelector('.alertas-grid');
+        if (!contenedor) return;
+        let html = '';
+        alertas.forEach(alerta => {
+            let clase = '';
+            let icono = '';
+            if (alerta.tipo === 'urgente') { clase = 'alerta-urgente'; icono = 'fa-exclamation-triangle'; }
+            else if (alerta.tipo === 'info') { clase = 'alerta-info'; icono = 'fa-info-circle'; }
+            else { clase = 'alerta-evento'; icono = 'fa-calendar-check'; }
+            html += `
+                <div class="alerta-item ${clase}">
+                    <div class="alerta-icon"><i class="fas ${icono}"></i></div>
+                    <div class="alerta-content">
+                        <h3>${escapeHtml(alerta.titulo)}</h3>
+                        <p>${escapeHtml(alerta.descripcion)}</p>
+                        <span class="alerta-fecha"><i class="far fa-calendar"></i> ${new Date(alerta.fecha).toLocaleDateString()}</span>
+                    </div>
+                </div>
+            `;
+        });
+        contenedor.innerHTML = html;
+    } catch (error) {
+        console.error('Error cargando alertas:', error);
+    }
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
+// ==================== INICIALIZACIÓN ====================
+document.addEventListener('DOMContentLoaded', () => {
+    cargarConfiguracion();
+    const path = window.location.pathname;
+    if (path.includes('emprendedores.html')) cargarEmprendedores();
+    if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
+        cargarAlertas();
+        // cargarNoticias();
+    }
 });
-
-// js/main.js - Carrusel de imágenes
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Elementos del carrusel
-    const slides = document.querySelectorAll('.carrusel-slide');
-    const prevBtn = document.querySelector('.carrusel-prev');
-    const nextBtn = document.querySelector('.carrusel-next');
-    const indicators = document.querySelectorAll('.indicador');
-    let currentSlide = 0;
-    let slideInterval;
-
-    // Función para mostrar un slide específico
-    function showSlide(index) {
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
-
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(ind => ind.classList.remove('active'));
-
-        slides[index].classList.add('active');
-        indicators[index].classList.add('active');
-
-        currentSlide = index;
-    }
-
-    // Siguiente slide
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-
-    // Anterior slide
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-
-    // Iniciar autoplay (cada 5 segundos)
-    function startAutoPlay() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    // Detener autoplay
-    function stopAutoPlay() {
-        clearInterval(slideInterval);
-    }
-
-    // Event listeners para botones
-    if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
-            stopAutoPlay();
-            prevSlide();
-            startAutoPlay();
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
-            stopAutoPlay();
-            nextSlide();
-            startAutoPlay();
-        });
-    }
-
-    // Event listeners para indicadores
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', function() {
-            stopAutoPlay();
-            showSlide(index);
-            startAutoPlay();
-        });
-    });
-
-    // Iniciar autoplay
-    if (slides.length > 0) {
-        startAutoPlay();
-    }
-});
-
-// ===== FUNCIONALIDAD PARA COMPARTIR NOTICIAS =====
-(function() {
-    // Obtener la URL actual de la página
-    const currentUrl = window.location.href;
-    const pageTitle = document.title || 'Noticia de Villa Rosario';
-    
-    // Configurar enlaces de compartir
-    const wspBtn = document.getElementById('share-wsp');
-    const fbBtn = document.getElementById('share-fb');
-    const twBtn = document.getElementById('share-tw');
-    const copyBtn = document.getElementById('copy-link');
-    const copyMessage = document.getElementById('copyMessage');
-    
-    // WhatsApp
-    if (wspBtn) {
-        wspBtn.href = `https://wa.me/?text=${encodeURIComponent(pageTitle + ' ' + currentUrl)}`;
-    }
-    
-    // Facebook
-    if (fbBtn) {
-        fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
-    }
-    
-    // Twitter
-    if (twBtn) {
-        twBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(currentUrl)}`;
-    }
-    
-    // Copiar enlace
-    if (copyBtn) {
-        copyBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Crear un elemento temporal para copiar
-            const tempInput = document.createElement('input');
-            tempInput.value = currentUrl;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            
-            // Mostrar mensaje de éxito
-            if (copyMessage) {
-                copyMessage.classList.add('show');
-                setTimeout(() => {
-                    copyMessage.classList.remove('show');
-                }, 2000);
-            }
-        });
-    }
-})();
-// ===== MODAL DE ANUNCIO IMPORTANTE (siempre visible) =====
-(function() {
-    const modal = document.getElementById('anuncioModal');
-    const cerrarBtn = document.getElementById('cerrarModal');
-    const contadorSpan = document.getElementById('contador');
-    
-    if (!modal) return;
-
-    let intervalo;
-    let segundos = 7; // Duración del contador
-
-    function mostrarModal() {
-        // Reiniciar contador
-        segundos = 7;
-        if (contadorSpan) contadorSpan.textContent = segundos;
-
-        modal.classList.add('mostrar');
-
-        intervalo = setInterval(() => {
-            segundos--;
-            if (contadorSpan) contadorSpan.textContent = segundos;
-            if (segundos <= 0) {
-                clearInterval(intervalo);
-                cerrarModal();
-            }
-        }, 1000);
-    }
-
-    function cerrarModal() {
-        modal.classList.remove('mostrar');
-        if (intervalo) {
-            clearInterval(intervalo);
-        }
-    }
-
-    if (cerrarBtn) {
-        cerrarBtn.addEventListener('click', cerrarModal);
-    }
-
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            cerrarModal();
-        }
-    });
-
-    window.addEventListener('load', mostrarModal);
-})();
