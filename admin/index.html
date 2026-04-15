@@ -7,35 +7,5 @@
 </head>
 <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-        DecapCMS.init({
-            config: {
-                backend: {
-                    name: "github",
-                    repo: "thegoatzzbad02-blip/PAGINApRUEBA",
-                    branch: "main"
-                },
-                media_folder: "static/uploads",
-                public_folder: "/uploads",
-                collections: [
-                    {
-                        name: "noticias",
-                        label: "Noticias",
-                        folder: "_posts/noticias",
-                        create: true,
-                        slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-                        fields: [
-                            { label: "Título", name: "title", widget: "string" },
-                            { label: "Fecha", name: "date", widget: "datetime" },
-                            { label: "Categoría", name: "categoria", widget: "string" },
-                            { label: "Imagen", name: "imagen", widget: "image", required: false },
-                            { label: "Resumen", name: "resumen", widget: "text" },
-                            { label: "Contenido", name: "body", widget: "markdown" }
-                        ]
-                    }
-                ]
-            }
-        });
-    </script>
 </body>
 </html>
