@@ -114,10 +114,24 @@ function escapeHtml(str) {
 // ==================== INICIALIZACIÓN ====================
 document.addEventListener('DOMContentLoaded', () => {
     cargarConfiguracion();
-    const path = window.location.pathname;
-    if (path.includes('emprendedores.html')) cargarEmprendedores();
-    if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
+
+    // Cargar emprendedores si existe el contenedor
+    if (document.querySelector('.emprendedores-grid')) {
+        cargarEmprendedores();
+    }
+
+    // Cargar alertas si existe el contenedor
+    if (document.querySelector('.alertas-grid')) {
         cargarAlertas();
-        // cargarNoticias();
+    }
+
+    // Cargar últimas noticias en index
+    if (document.getElementById('lista-noticias-index')) {
+        mostrarUltimasNoticias(); // asegúrate de tener esta función
+    }
+
+    // Cargar eventos si existe el contenedor
+    if (document.getElementById('lista-eventos-index')) {
+        cargarEventos();
     }
 });
