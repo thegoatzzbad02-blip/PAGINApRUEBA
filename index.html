@@ -9,12 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- ==================== NAVEGACIÓN PRINCIPAL ==================== -->
+    <!-- Navegación -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="img/logo-villa-rosario.png" alt="Logo Villa Rosario" id="logo-img">
+                <img src="imagenes/logoVilla.png" alt="Logo Villa Rosario" id="logo-img">
                 <div class="logo-text">
                     <span class="logo-title">VILLA ROSARIO</span>
                     <span class="logo-subtitle">Comunidad Organizada</span>
@@ -36,7 +35,7 @@
         </div>
     </nav>
 
-    <!-- ==================== HERO (ENCABEZADO CON ESTADÍSTICAS) ==================== -->
+    <!-- Hero -->
     <header class="hero">
         <div class="hero-content">
             <h1>Bienvenidos a Villa Rosario</h1>
@@ -51,179 +50,90 @@
         </div>
     </header>
 
-    <!-- ==================== ALERTAS COMUNITARIAS (dinámicas desde _data/alertas.yml) ==================== -->
+    <!-- Alertas (se llenarán con JS) -->
     <section class="alertas">
         <div class="container">
             <h2><i class="fas fa-bullhorn"></i> Alertas Comunitarias</h2>
-            <div class="alertas-grid">
-                <!-- Las alertas se cargarán automáticamente con JavaScript -->
-            </div>
+            <div class="alertas-grid"></div>
         </div>
     </section>
 
-    <!-- ==================== CARRUSEL DE IMÁGENES (estático, se puede modificar manualmente) ==================== -->
+    <!-- Carrusel -->
     <section class="carrusel">
         <div class="container">
             <h2><i class="fas fa-images"></i> Galería Comunitaria</h2>
             <p class="section-subtitle">Momentos destacados de nuestra comunidad</p>
             <div class="carrusel-contenedor">
                 <div class="carrusel-slides">
-                    <div class="carrusel-slide active">
-                        <img src="img/carrusel1.jpg" alt="Asamblea comunitaria">
-                        <div class="carrusel-caption">
-                            <h3>Asamblea General 2026</h3>
-                            <p>Participación masiva de los vecinos</p>
-                        </div>
-                    </div>
-                    <div class="carrusel-slide">
-                        <img src="img/carrusel2.jpg" alt="Jornada de salud">
-                        <div class="carrusel-caption">
-                            <h3>Jornada de Vacunación</h3>
-                            <p>Más de 100 niños vacunados</p>
-                        </div>
-                    </div>
-                    <div class="carrusel-slide">
-                        <img src="img/carrusel3.jpg" alt="Entrega de CLAP">
-                        <div class="carrusel-caption">
-                            <h3>Entrega de Alimentos</h3>
-                            <p>Apoyo a las familias de la comunidad</p>
-                        </div>
-                    </div>
-                    <div class="carrusel-slide">
-                        <img src="img/carrusel4.jpg" alt="Limpieza comunitaria">
-                        <div class="carrusel-caption">
-                            <h3>Jornada de Limpieza</h3>
-                            <p>Embelleciendo nuestros espacios</p>
-                        </div>
-                    </div>
+                    <div class="carrusel-slide active"><img src="imagenes/carrusel1.png" alt="Asamblea"><div class="carrusel-caption"><h3>Asamblea General</h3><p>Participación vecinal</p></div></div>
+                    <div class="carrusel-slide"><img src="imagenes/carrusel2.png" alt="Salud"><div class="carrusel-caption"><h3>Jornada de Salud</h3><p>Más de 100 atendidos</p></div></div>
+                    <div class="carrusel-slide"><img src="imagenes/carrusel3.png" alt="CLAP"><div class="carrusel-caption"><h3>Entrega de Alimentos</h3><p>Apoyo familiar</p></div></div>
+                    <div class="carrusel-slide"><img src="imagenes/carrusel4.png" alt="Limpieza"><div class="carrusel-caption"><h3>Limpieza Comunitaria</h3><p>Embelleciendo espacios</p></div></div>
                 </div>
                 <button class="carrusel-prev"><i class="fas fa-chevron-left"></i></button>
                 <button class="carrusel-next"><i class="fas fa-chevron-right"></i></button>
                 <div class="carrusel-indicadores">
-                    <span class="indicador active" data-slide="0"></span>
-                    <span class="indicador" data-slide="1"></span>
-                    <span class="indicador" data-slide="2"></span>
-                    <span class="indicador" data-slide="3"></span>
+                    <span class="indicador active"></span><span class="indicador"></span><span class="indicador"></span><span class="indicador"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== ÚLTIMAS NOTICIAS (dinámico, muestra 3 noticias desde el CMS) ==================== -->
+    <!-- Últimas noticias (contenedor dinámico) -->
     <section class="noticias">
         <div class="container">
-            <h2>Últimas Noticias de la Comunidad</h2>
+            <h2>Últimas Noticias</h2>
             <p class="section-subtitle">Información oficial del Consejo Comunal</p>
-            <div id="lista-noticias-index" class="noticias-grid">
-                <!-- Aquí se inyectan las 3 noticias más recientes -->
-            </div>
-            <div class="text-center">
-                <a href="articulos.html" class="btn-ver-todas">Ver todas las noticias</a>
-            </div>
+            <div id="lista-noticias-index" class="noticias-grid"></div>
+            <div class="text-center"><a href="articulos.html" class="btn-ver-todas">Ver todas</a></div>
         </div>
     </section>
 
-    <!-- ==================== PRÓXIMOS EVENTOS (dinámico desde _data/eventos.yml) ==================== -->
+    <!-- Eventos -->
     <section class="eventos">
         <div class="container">
             <h2>Próximos Eventos</h2>
-            <div id="lista-eventos-index" class="eventos-grid">
-                <!-- Los eventos se cargan dinámicamente -->
-            </div>
+            <div id="lista-eventos-index" class="eventos-grid"></div>
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DEL PROYECTO UPTOS (estática) ==================== -->
+    <!-- Proyecto UPTOS -->
     <section class="proyecto-uptos">
         <div class="container">
             <div class="proyecto-content">
-                <div class="proyecto-info">
-                    <h2>Proyecto Universitario UPTOS</h2>
-                    <p>Esta plataforma web es parte del proyecto de investigación:</p>
-                    <p class="proyecto-titulo">"Implementación de una plataforma web informativa que sirva como medio alternativo de comunicación para los habitantes de la comunidad de Villa Rosario"</p>
-                    <div class="proyecto-datos">
-                        <h3>Estudiantes Investigadores:</h3>
-                        <ul>
-                            <li>Diego David Acuña Chacón C.I 32123210</li>
-                            <li>Samuel Enrique Maestre Marcano C.I 33683225</li>
-                            <li>Darío Rafael Mendoza Millán C.I 32449201</li>
-                            <li>Robert Jesús Mundaray Rincones C.I 32746996</li>
-                        </ul>
-                        <h3>Profesores Asesores:</h3>
-                        <p>Rosiris Álvarez</p>
-                        <p>Raúl Canelón</p>
-                    </div>
-                </div>
-                <div class="proyecto-logos">
-                    <div class="logo-institucion">
-                        <h4>Universidad Politécnica Territorial del Oeste de Sucre</h4>
-                        <p>"Clodosbaldo Russián"</p>
-                    </div>
-                    <div class="logo-institucion">
-                        <h4>Programa Nacional de Formación en Informática</h4>
-                    </div>
+                <h2>Proyecto Universitario UPTOS</h2>
+                <p class="proyecto-titulo">"Implementación de una plataforma web informativa..."</p>
+                <div class="proyecto-datos">
+                    <h3>Estudiantes:</h3>
+                    <ul><li>Diego Acuña</li><li>Samuel Maestre</li><li>Darío Mendoza</li><li>Robert Mundaray</li></ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FOOTER (con información dinámica de contacto y WhatsApp) ==================== -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Comunidad Villa Rosario</h3>
-                    <p>Sector Sabilar, Parroquia Altagracia</p>
-                    <p>Municipio Sucre, Estado Sucre</p>
-                    <p>Fundada en 2009</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Proyecto Universitario</h3>
-                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
-                        <img src="img/logo-uptos.png" alt="UPTOS" style="height: 60px;">
-                        <img src="img/logo-pnf.png" alt="PNF Informática" style="height: 60px;">
-                    </div>
-                    <p>Estudiantes de Informática<br>UPTOS "Clodosbaldo Russián"</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Conéctate</h3>
-                    <p>Únete al grupo oficial:</p>
-                    <a href="#" id="whatsapp-group-link" class="btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Unirse al grupo
-                    </a>
-                    <div class="qr-code">
-                        <p>Escanea el código QR:</p>
-                        <div class="qr-placeholder"><i class="fas fa-qrcode"></i> QR</div>
-                    </div>
-                </div>
+                <div class="footer-col"><h3>Villa Rosario</h3><p>Sector Sabilar, Parroquia Altagracia</p><p>Fundada 2009</p></div>
+                <div class="footer-col"><h3>Proyecto UPTOS</h3><p>PNF Informática</p></div>
+                <div class="footer-col"><h3>Conéctate</h3><a href="#" id="whatsapp-group-link" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Unirse al grupo</a></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
-                <p>Cumaná, Estado Sucre - Venezuela</p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 Comunidad Villa Rosario | Proyecto UPTOS</p></div>
         </div>
     </footer>
 
-    <!-- ==================== SCRIPTS ==================== -->
+    <!-- Scripts obligatorios -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) window.netlifyIdentity.on("login", () => document.location.href = "/admin/");
+            });
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
 </body>
 </html>

@@ -9,64 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ==================== NAVEGACIÓN PRINCIPAL ==================== -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="img/logo-villa-rosario.png" alt="Logo Villa Rosario" id="logo-img">
-                <div class="logo-text">
-                    <span class="logo-title">VILLA ROSARIO</span>
-                    <span class="logo-subtitle">Comunidad Organizada</span>
-                </div>
-            </a>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="consejo-comunal.html"><i class="fas fa-users"></i> Consejo Comunal</a></li>
-                <li><a href="articulos.html"><i class="fas fa-newspaper"></i> Noticias</a></li>
-                <li><a href="servicios.html"><i class="fas fa-bolt"></i> Servicios</a></li>
-                <li><a href="reportes.html"><i class="fas fa-flag"></i> Reportar Problema</a></li>
-                <li><a href="emprendedores.html"><i class="fas fa-store"></i> Emprendedores</a></li>
-                <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="navbar">...</nav>
+
     <main>
         <div class="container" style="max-width: 900px; margin: 2rem auto;">
-            <!-- Contenedor donde se inyectará la noticia completa -->
             <div id="noticia-completa"></div>
-
-            <!-- ==================== BOTONES DE COMPARTIR ==================== -->
             <div class="compartir-noticia">
-                <span class="compartir-titulo"><i class="fas fa-share-alt"></i> Compartir esta noticia:</span>
+                <span class="compartir-titulo"><i class="fas fa-share-alt"></i> Compartir:</span>
                 <div class="compartir-botones">
-                    <a href="#" class="compartir-btn compartir-wsp" id="share-wsp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
-                    </a>
-                    <a href="#" class="compartir-btn compartir-fb" id="share-fb" target="_blank">
-                        <i class="fab fa-facebook-f"></i> <span>Facebook</span>
-                    </a>
-                    <a href="#" class="compartir-btn compartir-tw" id="share-tw" target="_blank">
-                        <i class="fab fa-twitter"></i> <span>Twitter</span>
-                    </a>
-                    <button class="compartir-btn compartir-copy" id="copy-link">
-                        <i class="fas fa-link"></i> <span>Copiar enlace</span>
-                    </button>
+                    <a href="#" id="share-wsp" class="compartir-btn compartir-wsp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#" id="share-fb" class="compartir-btn compartir-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" id="share-tw" class="compartir-btn compartir-tw"><i class="fab fa-twitter"></i> Twitter</a>
+                    <button id="copy-link" class="compartir-btn compartir-copy"><i class="fas fa-link"></i> Copiar enlace</button>
                 </div>
                 <div id="copyMessage" class="copy-message">¡Enlace copiado!</div>
             </div>
         </div>
     </main>
 
-   <div class="footer-bottom">
-                <p>&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
-                <p>Cumaná, Estado Sucre - Venezuela</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="footer">...</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
