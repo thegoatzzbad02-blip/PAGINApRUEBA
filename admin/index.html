@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrador - Villa Rosario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Villa Rosario</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <div class="container">
+        <h1>Panel de Administración</h1>
+        <div id="loginSection">
+            <h2>Ingrese la clave de acceso</h2>
+            <input type="password" id="apiKeyInput" placeholder="Clave API">
+            <button id="loginBtn">Acceder</button>
+        </div>
+        <div id="adminContent" style="display: none;">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="noticias">Noticias</button>
+                <button class="tab-btn" data-tab="emprendedores">Emprendedores</button>
+                <button class="tab-btn" data-tab="alertas">Alertas</button>
+                <button class="tab-btn" data-tab="eventos">Eventos</button>
+                <button class="tab-btn" data-tab="servicios">Servicios</button>
+                <button class="tab-btn" data-tab="configuracion">Configuración</button>
+            </div>
+            
+            <!-- Noticias -->
+            <div id="tab-noticias" class="tab-content active">
+                <h2>Gestión de Noticias</h2>
+                <button id="newNoticiaBtn">+ Nueva Noticia</button>
+                <div id="noticiasList"></div>
+                <div id="noticiaEditor" style="display:none;">
+                    <h3>Editar Noticia</h3>
+                    <input type="text" id="noticiaTitulo" placeholder="Título">
+                    <input type="text" id="noticiaFecha" placeholder="Fecha (ISO 8601)">
+                    <input type="text" id="noticiaCategoria" placeholder="Categoría">
+                    <input type="text" id="noticiaImagen" placeholder="URL imagen (ej: /uploads/mi-foto.jpg)">
+                    <textarea id="noticiaResumen" placeholder="Resumen breve"></textarea>
+                    <textarea id="noticiaContenido" placeholder="Contenido completo (Markdown)"></textarea>
+                    <button id="saveNoticiaBtn">Guardar</button>
+                    <button id="cancelNoticiaBtn">Cancelar</button>
+                </div>
+            </div>
+            
+            <!-- Emprendedores -->
+            <div id="tab-emprendedores" class="tab-content">
+                <h2>Emprendedores (YAML)</h2>
+                <textarea id="emprendedoresEditor" rows="20"></textarea>
+                <button id="saveEmprendedoresBtn">Guardar</button>
+            </div>
+            
+            <!-- Alertas -->
+            <div id="tab-alertas" class="tab-content">
+                <h2>Alertas (YAML)</h2>
+                <textarea id="alertasEditor" rows="20"></textarea>
+                <button id="saveAlertasBtn">Guardar</button>
+            </div>
+            
+            <!-- Eventos -->
+            <div id="tab-eventos" class="tab-content">
+                <h2>Eventos (YAML)</h2>
+                <textarea id="eventosEditor" rows="20"></textarea>
+                <button id="saveEventosBtn">Guardar</button>
+            </div>
+            
+            <!-- Servicios -->
+            <div id="tab-servicios" class="tab-content">
+                <h2>Servicios Públicos (YAML)</h2>
+                <textarea id="serviciosEditor" rows="20"></textarea>
+                <button id="saveServiciosBtn">Guardar</button>
+            </div>
+            
+            <!-- Configuración -->
+            <div id="tab-configuracion" class="tab-content">
+                <h2>Configuración General (YAML)</h2>
+                <textarea id="configuracionEditor" rows="20"></textarea>
+                <button id="saveConfiguracionBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
