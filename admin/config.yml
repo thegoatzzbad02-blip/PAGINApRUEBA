@@ -1,0 +1,154 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "configuracion"
+    label: "Configuración General"
+    files:
+      - name: "general"
+        label: "Datos de Contacto y Redes"
+        file: "_data/configuracion.yml"
+        fields:
+          - { label: "Teléfono de contacto", name: "telefono", widget: "string", required: false }
+          - { label: "Correo electrónico", name: "email", widget: "string", required: false }
+          - { label: "Dirección", name: "direccion", widget: "text", required: false }
+          - { label: "Horario de atención", name: "horario", widget: "string", required: false }
+          - { label: "URL del grupo de WhatsApp", name: "whatsapp_url", widget: "string", required: false }
+
+  - name: "alertas"
+    label: "Alertas Comunitarias"
+    files:
+      - name: "lista-alertas"
+        label: "Lista de Alertas"
+        file: "_data/alertas.yml"
+        fields:
+          - label: "Alertas"
+            name: "alertas"
+            widget: "list"
+            summary: "{{fields.titulo}} - {{fields.tipo}}"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Descripción", name: "descripcion", widget: "text" }
+              - label: "Tipo de alerta"
+                name: "tipo"
+                widget: "select"
+                options:
+                  - { label: "Urgente (rojo)", value: "urgente" }
+                  - { label: "Informativa (azul)", value: "info" }
+                  - { label: "Evento (verde)", value: "evento" }
+              - { label: "Fecha de publicación", name: "fecha", widget: "datetime" }
+
+  - name: "noticias"
+    label: "Noticias"
+    folder: "_posts/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "date", widget: "datetime" }
+      - label: "Categoría"
+        name: "categoria"
+        widget: "select"
+        options:
+          - "Servicios Públicos"
+          - "Asamblea"
+          - "Infraestructura"
+          - "CLAP"
+          - "Salud"
+          - "Seguridad"
+          - "Evento"
+      - { label: "Imagen destacada", name: "imagen", widget: "image", required: false, media_folder: "/static/uploads", public_folder: "/uploads" }
+      - { label: "Resumen breve", name: "resumen", widget: "text", required: false }
+      - { label: "Contenido completo", name: "body", widget: "markdown" }
+
+  - name: "emprendedores"
+    label: "Emprendedores"
+    files:
+      - name: "lista-emprendedores"
+        label: "Lista de Emprendedores"
+        file: "_data/emprendedores.yml"
+        fields:
+          - label: "Emprendedores"
+            name: "emprendedores"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { label: "Nombre del negocio", name: "nombre", widget: "string" }
+              - { label: "Imagen", name: "imagen", widget: "image", required: false }
+              - { label: "Descripción", name: "descripcion", widget: "text" }
+              - { label: "Teléfono", name: "telefono", widget: "string", required: false }
+              - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+
+  - name: "eventos"
+    label: "Eventos"
+    files:
+      - name: "lista-eventos"
+        label: "Lista de Eventos"
+        file: "_data/eventos.yml"
+        fields:
+          - label: "Eventos"
+            name: "eventos"
+            widget: "list"
+            summary: "{{fields.titulo}} - {{fields.fecha_hora}}"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Fecha y hora", name: "fecha_hora", widget: "datetime" }
+              - { label: "Lugar", name: "lugar", widget: "string" }
+              - { label: "Descripción breve", name: "descripcion", widget: "text" }
+
+  - name: "servicios"
+    label: "Servicios Públicos"
+    files:
+      - name: "estado-servicios"
+        label: "Estado de Servicios"
+        file: "_data/servicios.yml"
+        fields:
+          - label: "Agua"
+            name: "agua"
+            widget: "object"
+            fields:
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options: ["deficiente", "regular", "critico", "optimo"]
+              - { label: "Texto adicional", name: "texto", widget: "text", required: false }
+          - label: "Electricidad"
+            name: "electricidad"
+            widget: "object"
+            fields:
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options: ["deficiente", "regular", "critico", "optimo"]
+              - { label: "Texto adicional", name: "texto", widget: "text", required: false }
+          - label: "Aseo Urbano"
+            name: "aseo"
+            widget: "object"
+            fields:
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options: ["deficiente", "regular", "critico", "optimo"]
+              - { label: "Texto adicional", name: "texto", widget: "text", required: false }
+          - label: "Internet"
+            name: "internet"
+            widget: "object"
+            fields:
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options: ["deficiente", "regular", "critico", "optimo"]
+              - { label: "Texto adicional", name: "texto", widget: "text", required: false }
+          - label: "Historial de gestiones"
+            name: "gestiones"
+            widget: "list"
+            summary: "{{fields.fecha}} - {{fields.descripcion}}"
+            fields:
+              - { label: "Fecha", name: "fecha", widget: "date" }
+              - { label: "Descripción", name: "descripcion", widget: "text" }

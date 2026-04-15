@@ -6,20 +6,19 @@
     <title>Todas las Noticias - Villa Rosario</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Barra de Navegación -->
+    <!-- ==================== NAVEGACIÓN ==================== -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="imagenes/logoVilla.png"Logo Villa Rosario" id="logo-img">
+                <img src="img/logo-villa-rosario.png" alt="Logo Villa Rosario" id="logo-img">
                 <div class="logo-text">
                     <span class="logo-title">VILLA ROSARIO</span>
                     <span class="logo-subtitle">Comunidad Organizada</span>
                 </div>
             </a>
-            
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -36,202 +35,29 @@
         </div>
     </nav>
 
-    <!-- Encabezado de página con diseño impactante -->
-    <header style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,...') repeat; opacity: 0.1;"></div>
-        <div class="container" style="position: relative; z-index: 2;">
-            <h1 style="font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3);">✨ Noticias de la Comunidad ✨</h1>
-            <p style="font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">Toda la información importante que necesitas saber sobre Villa Rosario, directamente del Consejo Comunal</p>
+    <!-- ==================== ENCABEZADO ==================== -->
+    <header class="page-header" style="background: linear-gradient(135deg, var(--color-azul), var(--color-rojo));">
+        <div class="container">
+            <h1>Todas las Noticias</h1>
+            <p>Mantente informado con las últimas novedades de la comunidad</p>
         </div>
-        <div style="position: absolute; bottom: -20px; left: 0; right: 0; height: 40px; background: white; transform: skewY(-2deg);"></div>
     </header>
 
     <main>
-        <div class="container" style="margin-top: 3rem;">
-            <!-- Grid de noticias - SIN PAGINACIÓN, SOLO COLOR -->
-            <div class="noticias-grid">
-                <!-- Noticia 1: Servicios Públicos -->
-                <article class="noticia-card" data-categoria="servicios">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-tint"></i> AGUA</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 15 MAR</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>⚠️ Corte de Agua Programado</h3>
-                        <p>Este viernes 22 de marzo, de 8am a 4pm, mantenimiento de HIDROCARIBE. ¡Almacena agua!</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=1" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 2: Asamblea -->
-                <article class="noticia-card" data-categoria="asamblea">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-users"></i> ASAMBLEA</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 10 MAR</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>🗣️ ¡Asamblea General este sábado!</h3>
-                        <p>10am en la Casa Comunal. Trataremos servicios públicos y presupuesto participativo. ¡Asiste!</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=2" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 3: CLAP -->
-                <article class="noticia-card" data-categoria="clap">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-shopping-basket"></i> CLAP</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 05 MAR</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>📦 Próxima entrega CLAP</h3>
-                        <p>Última semana de marzo. Los líderes de calle notificarán el cronograma por sector.</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=3" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 4: Infraestructura -->
-                <article class="noticia-card" data-categoria="infraestructura">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-road"></i> INFRAESTRUCTURA</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 01 MAR</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>🛣️ Avances para el asfaltado</h3>
-                        <p>Solicitud formal presentada. Esperamos respuesta en 30 días. ¡Seguimos gestionando!</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=4" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 5: Salud -->
-                <article class="noticia-card" data-categoria="salud">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-heartbeat"></i> SALUD</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 25 FEB</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>💉 Jornada de Vacunación</h3>
-                        <p>Este sábado en la Casa Comunal. Vacunas para niños y adultos. ¡Trae tu carnet!</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=5" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 6: Seguridad -->
-                <article class="noticia-card" data-categoria="seguridad">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-shield-alt"></i> SEGURIDAD</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 20 FEB</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>🚔 Plan de Vigilancia Nocturna</h3>
-                        <p>Acuerdo con cuerpos de seguridad para aumentar patrullaje en horarios nocturnos.</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=6" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 7: Servicios (extra) -->
-                <article class="noticia-card" data-categoria="servicios">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-bolt"></i> ELECTRICIDAD</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 18 FEB</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>⚡ Mejoras en el alumbrado</h3>
-                        <p>Se instalaron 20 nuevas luminarias en calles 1 y 2. ¡Más seguridad para todos!</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=7" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Noticia 8: Evento especial -->
-                <article class="noticia-card" data-categoria="asamblea">
-                    <div class="noticia-header">
-                        <span class="noticia-categoria"><i class="fas fa-calendar-check"></i> EVENTO</span>
-                        <span class="noticia-fecha"><i class="far fa-calendar-alt"></i> 15 FEB</span>
-                    </div>
-                    <div class="noticia-body">
-                        <h3>🎉 Celebración del Día de la Mujer</h3>
-                        <p>8 de marzo, actividades culturales y reconocimiento a las mujeres de la comunidad.</p>
-                    </div>
-                    <div class="noticia-footer">
-                        <a href="noticia.html?id=8" class="btn-leer-mas">VER DETALLES <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Mensaje final (opcional) -->
-            <div style="text-align: center; margin: 4rem 0; padding: 2rem; background: var(--color-gris-claro); border-radius: 50px;">
-                <p style="font-size: 1.2rem; color: var(--color-azul); font-weight: 600;">📢 ¿Tienes alguna noticia o evento para compartir?</p>
-                <a href="contacto.html" style="display: inline-block; margin-top: 1rem; background: var(--color-azul); color: white; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600;">Contacta al Consejo Comunal</a>
-            </div>
+        <div class="container">
+            <!-- Contenedor dinámico para todas las noticias -->
+            <div id="lista-noticias-completa" class="noticias-grid"></div>
         </div>
     </main>
 
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-grid" style="grid-template-columns: 1fr 1fr 1fr;"> <!-- 3 columnas iguales -->
-            <!-- Columna 1: Información de la comunidad -->
-            <div class="footer-col">
-                <h3>Comunidad Villa Rosario</h3>
-                <p>Sector Sabilar, Parroquia Altagracia</p>
-                <p>Municipio Sucre, Estado Sucre</p>
-                <p>Fundada en 2009</p>
-                <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- Columna 2: Proyecto UPTOS con logos -->
-            <div class="footer-col">
-                <h3>Proyecto Universitario</h3>
-                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem;">
-                    <!-- Logo UPTOS (reemplaza con tu imagen) -->
-                    <img src="imagenes/logo-uptos.png" alt="UPTOS" style="height: 60px; width: auto;">
-                    <!-- Logo PNF Informática (reemplaza con tu imagen) -->
-                   
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                    Estudiantes de Informática<br>
-                    UPTOS "Clodosbaldo Russián"
-                </p>
-            </div>
-
-            <!-- Columna 3: Grupo WhatsApp -->
-            <div class="footer-col">
-                <h3>Conéctate</h3>
-                <p>Únete al grupo oficial:</p>
-                <a href="#" class="btn-whatsapp" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 600;">
-                    <i class="fab fa-whatsapp"></i> Unirse al grupo
-                </a>
-                <div class="qr-code" style="margin-top: 1rem;">
-                    <p>Escanea el código QR:</p>
-                    <div class="qr-placeholder" style="background: white; padding: 0.5rem; display: inline-block; border-radius: 8px;">
-                        <i class="fas fa-qrcode" style="font-size: 3rem; color: black;"></i>
-                    </div>
-                </div>
+    <div class="footer-bottom">
+                <p>&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
+                <p>Cumaná, Estado Sucre - Venezuela</p>
             </div>
         </div>
-
-        <!-- Línea inferior con copyright -->
-        <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
-            <p style="font-size: 0.9rem;">&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
-            <p style="font-size: 0.8rem; opacity: 0.6;">Cumaná, Estado Sucre - Venezuela</p>
-        </div>
-    </div>
-</footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

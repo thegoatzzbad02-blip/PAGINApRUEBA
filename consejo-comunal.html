@@ -9,24 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Barra de Navegación -->
+   <!-- ==================== NAVEGACIÓN PRINCIPAL ==================== -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="imagenes/logoVilla.png" alt="Logo Villa Rosario" id="logo-img">
+                <img src="img/logo-villa-rosario.png" alt="Logo Villa Rosario" id="logo-img">
                 <div class="logo-text">
                     <span class="logo-title">VILLA ROSARIO</span>
                     <span class="logo-subtitle">Comunidad Organizada</span>
                 </div>
             </a>
-            
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="menu-btn">
                 <i class="fas fa-bars"></i>
             </label>
             <ul class="nav-menu">
-                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="consejo-comunal.html" class="active"><i class="fas fa-users"></i> Consejo Comunal</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="consejo-comunal.html"><i class="fas fa-users"></i> Consejo Comunal</a></li>
                 <li><a href="articulos.html"><i class="fas fa-newspaper"></i> Noticias</a></li>
                 <li><a href="servicios.html"><i class="fas fa-bolt"></i> Servicios</a></li>
                 <li><a href="reportes.html"><i class="fas fa-flag"></i> Reportar Problema</a></li>
@@ -36,7 +35,6 @@
         </div>
     </nav>
 
-    <!-- Encabezado de la página -->
     <header class="page-header">
         <div class="container">
             <h1>Consejo Comunal</h1>
@@ -46,126 +44,37 @@
 
     <main>
         <div class="container">
-            <!-- Información general -->
-            <section style="margin-bottom: 3rem;">
-                <h2 style="color: var(--color-azul);">¿Qué es el Consejo Comunal?</h2>
-                <p>El Consejo Comunal es la instancia de participación ciudadana que permite a la comunidad organizada gestionar proyectos y tomar decisiones colectivas. En Villa Rosario, estamos organizados a través de diversas instancias para garantizar el bienestar de todos los habitantes.</p>
+            <section>
+                <h2>¿Qué es el Consejo Comunal?</h2>
+                <p>El Consejo Comunal es la instancia de participación ciudadana que permite a la comunidad organizada gestionar proyectos y tomar decisiones colectivas.</p>
             </section>
-
-            <!-- Órganos de Decisión -->
-            <section style="margin-bottom: 3rem;">
-                <h2 style="color: var(--color-azul);">Órganos de Decisión</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <div style="background: var(--color-gris-claro); padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--color-azul);">
-                        <i class="fas fa-users" style="font-size: 2rem; color: var(--color-azul); margin-bottom: 1rem;"></i>
-                        <h3>Asambleas Ciudadanas</h3>
-                        <p>Máxima instancia de decisión comunitaria. Se realizan periódicamente para tratar temas de interés general.</p>
-                    </div>
-                    <div style="background: var(--color-gris-claro); padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--color-rojo);">
-                        <i class="fas fa-user-tie" style="font-size: 2rem; color: var(--color-rojo); margin-bottom: 1rem;"></i>
-                        <h3>Voceros del Consejo Comunal</h3>
-                        <p>Representantes electos por la comunidad para gestionar y ejecutar las decisiones de las asambleas.</p>
-                    </div>
-                    <div style="background: var(--color-gris-claro); padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--color-verde);">
-                        <i class="fas fa-people-arrows" style="font-size: 2rem; color: var(--color-verde); margin-bottom: 1rem;"></i>
-                        <h3>Líderes de Calle</h3>
-                        <p>Coordinadores por cada una de las 4 calles, facilitan la comunicación directa con los vecinos.</p>
-                    </div>
+            <section>
+                <h2>Órganos de Decisión</h2>
+                <div class="organos-grid">
+                    <div><i class="fas fa-users"></i><h3>Asambleas Ciudadanas</h3><p>Máxima instancia de decisión.</p></div>
+                    <div><i class="fas fa-user-tie"></i><h3>Voceros del Consejo Comunal</h3><p>Representantes electos.</p></div>
+                    <div><i class="fas fa-people-arrows"></i><h3>Líderes de Calle</h3><p>Coordinadores por cada una de las 4 calles.</p></div>
                 </div>
             </section>
-
-            <!-- Comités de Trabajo -->
-            <section style="margin-bottom: 3rem;">
-                <h2 style="color: var(--color-azul);">Comités de Trabajo</h2>
-                <p>La comunidad cuenta con 10 comités activos, cada uno atendiendo áreas específicas:</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-tint" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Mesa Técnica de Agua</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-bolt" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Energía y Gas</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-bullhorn" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Medios Comunitarios</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-shield-alt" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Seguridad Integral</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-heartbeat" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Salud</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-chart-line" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Economía Comunal</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-home" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Vivienda y Hábitat</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-utensils" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Alimentación</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-venus-mars" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Mujer e Igualdad</div>
-                    <div style="background: white; padding: 1rem; border-radius: 5px; box-shadow: var(--sombra-suave);"><i class="fas fa-wheelchair" style="color: var(--color-azul); margin-right: 0.5rem;"></i> Personas con Discapacidad</div>
-                </div>
-            </section>
-
-            <!-- Voceros actuales -->
-            <section style="margin-bottom: 3rem;">
-                <h2 style="color: var(--color-azul);">Voceros Principales</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-user-circle" style="font-size: 4rem; color: var(--color-azul);"></i>
-                        <h3>Nombre del Vocero</h3>
-                        <p>Presidente del Consejo Comunal</p>
-                        <p><i class="fas fa-phone"></i> 0412-1234567</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-user-circle" style="font-size: 4rem; color: var(--color-azul);"></i>
-                        <h3>Nombre del Vocero</h3>
-                        <p>Tesorero</p>
-                        <p><i class="fas fa-phone"></i> 0414-7654321</p>
-                    </div>
+            <section>
+                <h2>Comités de Trabajo</h2>
+                <div class="comites-lista">
+                    <div>Mesa Técnica de Agua</div><div>Energía y Gas</div><div>Medios Comunitarios</div>
+                    <div>Seguridad Integral</div><div>Salud</div><div>Economía Comunal</div>
+                    <div>Vivienda y Hábitat</div><div>Alimentación</div><div>Mujer e Igualdad</div>
+                    <div>Personas con Discapacidad</div>
                 </div>
             </section>
         </div>
     </main>
 
-    <footer class="footer">
-    <div class="container">
-        <div class="footer-grid" style="grid-template-columns: 1fr 1fr 1fr;"> <!-- 3 columnas iguales -->
-            <!-- Columna 1: Información de la comunidad -->
-            <div class="footer-col">
-                <h3>Comunidad Villa Rosario</h3>
-                <p>Sector Sabilar, Parroquia Altagracia</p>
-                <p>Municipio Sucre, Estado Sucre</p>
-                <p>Fundada en 2009</p>
-                <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- Columna 2: Proyecto UPTOS con logos -->
-            <div class="footer-col">
-                <h3>Proyecto Universitario</h3>
-                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem;">
-                    <!-- Logo UPTOS (reemplaza con tu imagen) -->
-                    <img src="imagenes/logo-uptos.png" alt="UPTOS" style="height: 60px; width: auto;">
-                    <!-- Logo PNF Informática (reemplaza con tu imagen) -->
-                   
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                    Estudiantes de Informática<br>
-                    UPTOS "Clodosbaldo Russián"
-                </p>
-            </div>
-
-            <!-- Columna 3: Grupo WhatsApp -->
-            <div class="footer-col">
-                <h3>Conéctate</h3>
-                <p>Únete al grupo oficial:</p>
-                <a href="#" class="btn-whatsapp" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 600;">
-                    <i class="fab fa-whatsapp"></i> Unirse al grupo
-                </a>
-                <div class="qr-code" style="margin-top: 1rem;">
-                    <p>Escanea el código QR:</p>
-                    <div class="qr-placeholder" style="background: white; padding: 0.5rem; display: inline-block; border-radius: 8px;">
-                        <i class="fas fa-qrcode" style="font-size: 3rem; color: black;"></i>
-                    </div>
-                </div>
+    <div class="footer-bottom">
+                <p>&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
+                <p>Cumaná, Estado Sucre - Venezuela</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Línea inferior con copyright -->
-        <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
-            <p style="font-size: 0.9rem;">&copy; 2026 Comunidad Villa Rosario | Proyecto UPTOS - PNF Informática</p>
-            <p style="font-size: 0.8rem; opacity: 0.6;">Cumaná, Estado Sucre - Venezuela</p>
-        </div>
-    </div>
-</footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
