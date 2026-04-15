@@ -1,28 +1,56 @@
 // admin/app.js
 let apiKey = '';
 
-document.getElementById('loginBtn').addEventListener('click', () => {
-    apiKey = document.getElementById('apiKeyInput').value;
-    if (!apiKey) return;
-    document.getElementById('loginSection').style.display = 'none';
-    document.getElementById('adminContent').style.display = 'block';
-    loadInitialData();
+document.getElementById('loginBtn').addEventListener('click', async () => {
+    const key = document.getElementById('apiKeyInput').value.trim();
+    if (!key) {
+        alert('Ingrese la clave API');
+        return;
+    }
+    apiKey = key;
+
+    const loginBtn = document.getElementById('loginBtn');
+    const originalText = loginBtn.innerText;
+    loginBtn.innerText = 'Verificando...';
+    loginBtn.disabled = true;
+
+    try {
+        const res = await fetch('/api/admin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey
+            },
+            body: JSON.stringify({ action: 'list_noticias' })
+        });
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error || 'Clave incorrecta');
+        }
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('adminContent').style.display = 'block';
+        loadInitialData();
+    } catch (err) {
+        alert('Error de acceso: ' + err.message);
+        console.error(err);
+    } finally {
+        loginBtn.innerText = originalText;
+        loginBtn.disabled = false;
+    }
 });
 
 async function apiCall(action, data = {}) {
-    const url = '/api/admin';
-    const payload = { action, ...data };
-    const res = await fetch(url, {
+    const res = await fetch('/api/admin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'x-api-key': apiKey
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ action, ...data })
     });
     if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.error || 'Error en la petición');
+        const err = await res.json();
+        throw new Error(err.error || 'Error en la petición');
     }
     return res.json();
 }
@@ -40,19 +68,17 @@ async function loadNoticias() {
         div.innerHTML = `
             <span><strong>${n.name}</strong></span>
             <span>
-                <button class="editNoticia" data-file="${n.name}" data-sha="${n.sha}">Editar</button>
-                <button class="deleteNoticia" data-file="${n.name}" data-sha="${n.sha}">Eliminar</button>
+                <button class="editNoticia" data-file="${n.name}" data-sha="${n.sha}">✏️ Editar</button>
+                <button class="deleteNoticia" data-file="${n.name}" data-sha="${n.sha}">🗑️ Eliminar</button>
             </span>
         `;
         container.appendChild(div);
     }
-    // Editar
     document.querySelectorAll('.editNoticia').forEach(btn => {
         btn.addEventListener('click', async () => {
             const slug = btn.dataset.file.replace('.md', '');
             const data = await apiCall('get_noticia', { slug });
             const content = data.content;
-            // Parsear frontmatter y body
             const match = content.match(/---\n([\s\S]*?)\n---\n([\s\S]*)/);
             if (match) {
                 const front = match[1];
@@ -75,7 +101,6 @@ async function loadNoticias() {
             document.getElementById('noticiaEditor').style.display = 'block';
         });
     });
-    // Eliminar
     document.querySelectorAll('.deleteNoticia').forEach(btn => {
         btn.addEventListener('click', async () => {
             if (confirm('¿Eliminar esta noticia?')) {
@@ -90,7 +115,7 @@ document.getElementById('newNoticiaBtn').addEventListener('click', () => {
     currentNoticia = null;
     document.getElementById('noticiaEditor').style.display = 'block';
     document.getElementById('noticiaTitulo').value = '';
-    document.getElementById('noticiaFecha').value = '';
+    document.getElementById('noticiaFecha').value = new Date().toISOString();
     document.getElementById('noticiaCategoria').value = '';
     document.getElementById('noticiaImagen').value = '';
     document.getElementById('noticiaResumen').value = '';
@@ -127,19 +152,18 @@ function slugify(str) {
     return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-// ---------- Funciones genéricas para YAML ----------
+// ---------- YAML helpers ----------
 async function loadYamlEditor(editorId, actionGet, actionUpdate, shaVar) {
     const data = await apiCall(actionGet);
     document.getElementById(editorId).value = data.content;
     window[shaVar] = data.sha;
 }
 
-function setupYamlSave(btnId, editorId, actionUpdate, shaVar) {
+function setupYamlSave(btnId, editorId, actionUpdate, actionGet, shaVar) {
     document.getElementById(btnId).addEventListener('click', async () => {
         const content = document.getElementById(editorId).value;
         await apiCall(actionUpdate, { content, sha: window[shaVar], message: `Actualizar ${actionUpdate}` });
-        alert('Guardado');
-        // Recargar para actualizar SHA
+        alert('Guardado correctamente');
         const data = await apiCall(actionGet);
         window[shaVar] = data.sha;
     });
@@ -148,29 +172,19 @@ function setupYamlSave(btnId, editorId, actionUpdate, shaVar) {
 // ---------- Inicialización ----------
 async function loadInitialData() {
     await loadNoticias();
-    
-    // Emprendedores
     await loadYamlEditor('emprendedoresEditor', 'get_emprendedores', 'update_emprendedores', 'emprendedoresSha');
-    setupYamlSave('saveEmprendedoresBtn', 'emprendedoresEditor', 'update_emprendedores', 'emprendedoresSha');
-    
-    // Alertas
+    setupYamlSave('saveEmprendedoresBtn', 'emprendedoresEditor', 'update_emprendedores', 'get_emprendedores', 'emprendedoresSha');
     await loadYamlEditor('alertasEditor', 'get_alertas', 'update_alertas', 'alertasSha');
-    setupYamlSave('saveAlertasBtn', 'alertasEditor', 'update_alertas', 'alertasSha');
-    
-    // Eventos
+    setupYamlSave('saveAlertasBtn', 'alertasEditor', 'update_alertas', 'get_alertas', 'alertasSha');
     await loadYamlEditor('eventosEditor', 'get_eventos', 'update_eventos', 'eventosSha');
-    setupYamlSave('saveEventosBtn', 'eventosEditor', 'update_eventos', 'eventosSha');
-    
-    // Servicios
+    setupYamlSave('saveEventosBtn', 'eventosEditor', 'update_eventos', 'get_eventos', 'eventosSha');
     await loadYamlEditor('serviciosEditor', 'get_servicios', 'update_servicios', 'serviciosSha');
-    setupYamlSave('saveServiciosBtn', 'serviciosEditor', 'update_servicios', 'serviciosSha');
-    
-    // Configuración
+    setupYamlSave('saveServiciosBtn', 'serviciosEditor', 'update_servicios', 'get_servicios', 'serviciosSha');
     await loadYamlEditor('configuracionEditor', 'get_configuracion', 'update_configuracion', 'configuracionSha');
-    setupYamlSave('saveConfiguracionBtn', 'configuracionEditor', 'update_configuracion', 'configuracionSha');
+    setupYamlSave('saveConfiguracionBtn', 'configuracionEditor', 'update_configuracion', 'get_configuracion', 'configuracionSha');
 }
 
-// Pestañas
+// Tabs
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));

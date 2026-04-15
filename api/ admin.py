@@ -1,24 +1,19 @@
 # api/admin.py
-# Panel de administración en Python para Vercel
-# Maneja CRUD de noticias, emprendedores, alertas, eventos, servicios y configuración
-
 import os
 import json
-import re
 import base64
 import requests
 from datetime import datetime
 
-# ---------- Configuración ----------
+# Configuración desde variables de entorno
 GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
 API_KEY = os.environ.get('API_KEY')
-OWNER = 'thegoatzzbad02-blip'    # ← Cambia por tu usuario
-REPO = 'PAGINApRUEBA'            # ← Cambia por tu repositorio
+OWNER = 'thegoatzzbad02-blip'      
+REPO = 'PAGINApRUEBA'              
 BRANCH = 'main'
 
-# ---------- Funciones auxiliares de GitHub API ----------
+# ---------- Funciones GitHub ----------
 def github_request(method, url, data=None):
-    """Realiza una petición a la API de GitHub con autenticación"""
     headers = {
         'Authorization': f'Bearer {GITHUB_TOKEN}',
         'Accept': 'application/vnd.github.v3+json'
@@ -32,14 +27,12 @@ def github_request(method, url, data=None):
     return resp.json()
 
 def get_file_content(path):
-    """Obtiene contenido y SHA de un archivo del repositorio"""
     url = f'https://api.github.com/repos/{OWNER}/{REPO}/contents/{path}'
     data = github_request('GET', url)
     content = base64.b64decode(data['content']).decode('utf-8')
     return content, data['sha']
 
 def update_file_content(path, content, commit_message, sha=None):
-    """Crea o actualiza un archivo en el repositorio"""
     url = f'https://api.github.com/repos/{OWNER}/{REPO}/contents/{path}'
     payload = {
         'message': commit_message,
@@ -51,7 +44,6 @@ def update_file_content(path, content, commit_message, sha=None):
     return github_request('PUT', url, payload)
 
 def delete_file(path, sha, commit_message):
-    """Elimina un archivo del repositorio"""
     url = f'https://api.github.com/repos/{OWNER}/{REPO}/contents/{path}'
     payload = {
         'message': commit_message,
@@ -61,18 +53,16 @@ def delete_file(path, sha, commit_message):
     return github_request('DELETE', url, payload)
 
 def list_noticias():
-    """Devuelve lista de archivos .md en _posts/noticias"""
     url = f'https://api.github.com/repos/{OWNER}/{REPO}/contents/_posts/noticias'
     try:
         data = github_request('GET', url)
-        files = [{'name': f['name'], 'sha': f['sha'], 'download_url': f['download_url']} 
+        files = [{'name': f['name'], 'sha': f['sha'], 'download_url': f['download_url']}
                  for f in data if f['name'].endswith('.md')]
         return files
     except:
         return []
 
 def get_noticia(slug):
-    """Obtiene contenido de una noticia específica"""
     path = f'_posts/noticias/{slug}.md'
     content, sha = get_file_content(path)
     return {'content': content, 'sha': sha}
@@ -90,46 +80,42 @@ def delete_noticia(filename, sha):
     return delete_file(path, sha, f'Eliminar {filename}')
 
 def get_yaml(filepath):
-    """Obtiene contenido y SHA de un archivo YAML"""
     content, sha = get_file_content(filepath)
     return {'content': content, 'sha': sha}
 
 def update_yaml(filepath, content, commit_msg, sha=None):
     return update_file_content(filepath, content, commit_msg, sha)
 
-# ---------- Manejador principal de Vercel ----------
+# ---------- Manejador principal ----------
 def handler(request):
-    # Verificar autenticación
+    # Verificar API Key
     api_key = request.headers.get('x-api-key')
     if api_key != API_KEY:
         return {
             'statusCode': 401,
             'body': json.dumps({'error': 'No autorizado'})
         }
-    
-    # Solo POST (para acciones) o GET (para listar noticias)
+
     method = request.method
     if method == 'GET':
-        # GET devuelve lista de noticias (para carga inicial)
         return {
             'statusCode': 200,
             'body': json.dumps(list_noticias())
         }
-    
+
     if method != 'POST':
         return {
             'statusCode': 405,
             'body': json.dumps({'error': 'Método no permitido'})
         }
-    
-    # Parsear body
+
     try:
         body = json.loads(request.body)
     except:
         body = {}
-    
+
     action = body.get('action')
-    
+
     try:
         if action == 'list_noticias':
             data = list_noticias()
@@ -209,7 +195,7 @@ def handler(request):
                 'statusCode': 400,
                 'body': json.dumps({'error': f'Acción desconocida: {action}'})
             }
-        
+
         return {
             'statusCode': 200,
             'body': json.dumps(data)
