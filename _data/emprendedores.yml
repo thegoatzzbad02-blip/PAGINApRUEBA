@@ -1,5 +1,4 @@
 emprendedores:
-<<<<<<< HEAD
   - nombre: "Panadería El Trigal"
     imagen: "/uploads/panaderia.jpg"
     descripcion: "Pan artesanal, pasteles y dulces típicos"
@@ -14,14 +13,3 @@ emprendedores:
     whatsapp: ""
     instagram: ""
     facebook: "/bodegondonaana"
-=======
-  - nombre: Panaderia el Negocio
-    imagen: /uploads/emprendedor1.png
-    descripcion: Los mejores panes de la ciudad
-    telefono: "04128400235"
-    instagram: "@eltigre"
-  - nombre: pan
-    descripcion: pan dulce
-    telefono: "04123652558"
-    whatsapp: "04125469752"
->>>>>>> 8c95995c08abd5a57a1b39bee6ef5951afda1af8
