@@ -1,9 +1,6 @@
 {
-  "functions": {
-    "api/*.py": {
-      "runtime": "python3.9"
-    }
-  },
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/admin/(.*)", "destination": "/admin/$1" }
   ]
