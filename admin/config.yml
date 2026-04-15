@@ -65,7 +65,7 @@ collections:
       - { label: "Resumen breve", name: "resumen", widget: "text", required: false }
       - { label: "Contenido completo", name: "body", widget: "markdown" }
 
-  - name: "emprendedores"
+    - name: "emprendedores"
     label: "Emprendedores"
     files:
       - name: "lista-emprendedores"
@@ -84,7 +84,6 @@ collections:
               - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
               - { label: "Instagram", name: "instagram", widget: "string", required: false }
               - { label: "Facebook", name: "facebook", widget: "string", required: false }
-
   - name: "eventos"
     label: "Eventos"
     files:
