@@ -111,27 +111,64 @@ function escapeHtml(str) {
     });
 }
 
-// ==================== INICIALIZACIÓN ====================
-document.addEventListener('DOMContentLoaded', () => {
+// ==================== INICIALIZACIÓN GENERAL ====================
+document.addEventListener('DOMContentLoaded', async () => {
+    // Siempre cargar configuración (teléfonos, dirección, etc.)
     cargarConfiguracion();
 
-    // Cargar emprendedores si existe el contenedor
+    // 1. Emprendedores (si existe .emprendedores-grid)
     if (document.querySelector('.emprendedores-grid')) {
         cargarEmprendedores();
     }
 
-    // Cargar alertas si existe el contenedor
+    // 2. Alertas (si existe .alertas-grid)
     if (document.querySelector('.alertas-grid')) {
         cargarAlertas();
     }
 
-    // Cargar últimas noticias en index
+    // 3. Noticias en el index (si existe #lista-noticias-index)
     if (document.getElementById('lista-noticias-index')) {
-        mostrarUltimasNoticias(); // asegúrate de tener esta función
+        // Asegúrate de tener esta función definida
+        if (typeof mostrarUltimasNoticias === 'function') {
+            mostrarUltimasNoticias();
+        } else {
+            console.warn('mostrarUltimasNoticias no está definida');
+        }
     }
 
-    // Cargar eventos si existe el contenedor
+    // 4. Listado completo de noticias (si existe #lista-noticias-completa)
+    if (document.getElementById('lista-noticias-completa')) {
+        if (typeof cargarTodasNoticias === 'function') {
+            cargarTodasNoticias();
+        } else {
+            console.warn('cargarTodasNoticias no está definida');
+        }
+    }
+
+    // 5. Eventos (si existe #lista-eventos-index)
     if (document.getElementById('lista-eventos-index')) {
-        cargarEventos();
+        if (typeof cargarEventos === 'function') {
+            cargarEventos();
+        } else {
+            console.warn('cargarEventos no está definida');
+        }
+    }
+
+    // 6. Servicios públicos (si existe .servicios-estado)
+    if (document.querySelector('.servicios-estado')) {
+        if (typeof cargarServicios === 'function') {
+            cargarServicios();
+        } else {
+            console.warn('cargarServicios no está definida');
+        }
+    }
+
+    // 7. Noticia individual (si existe #noticia-completa)
+    if (document.getElementById('noticia-completa')) {
+        if (typeof cargarNoticiaIndividual === 'function') {
+            cargarNoticiaIndividual();
+        } else {
+            console.warn('cargarNoticiaIndividual no está definida');
+        }
     }
 });
