@@ -1,7 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: thegoatzzbad02-blip/PAGINApRUEBA # THEGOATZZBAD02-blip/PAGINApRUEBA
   branch: main
-
+  base_url: https://pagin-ap-rueba.vercel.app/ # La URL de tu nuevo sitio
+  
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
@@ -13,11 +15,11 @@ collections:
         label: "Datos de Contacto y Redes"
         file: "_data/configuracion.yml"
         fields:
-          - { label: "Teléfono de contacto", name: "telefono", widget: "string" }
-          - { label: "Correo electrónico", name: "email", widget: "string" }
+          - { label: "Teléfono", name: "telefono", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
           - { label: "Dirección", name: "direccion", widget: "text" }
-          - { label: "Horario de atención", name: "horario", widget: "string" }
-          - { label: "URL del grupo de WhatsApp", name: "whatsapp_url", widget: "string" }
+          - { label: "Horario", name: "horario", widget: "string" }
+          - { label: "WhatsApp URL", name: "whatsapp_url", widget: "string" }
 
   - name: "emprendedores"
     label: "Emprendedores"
@@ -31,7 +33,7 @@ collections:
             widget: "list"
             summary: "{{fields.nombre}}"
             fields:
-              - { label: "Nombre del negocio", name: "nombre", widget: "string" }
+              - { label: "Nombre", name: "nombre", widget: "string" }
               - { label: "Imagen", name: "imagen", widget: "image", required: false }
               - { label: "Descripción", name: "descripcion", widget: "text" }
               - { label: "Teléfono", name: "telefono", widget: "string", required: false }
@@ -46,8 +48,24 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Fecha de publicación", name: "date", widget: "datetime" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
       - { label: "Categoría", name: "categoria", widget: "string" }
       - { label: "Imagen destacada", name: "imagen", widget: "image", required: false }
-      - { label: "Resumen breve", name: "resumen", widget: "text", required: false }
-      - { label: "Contenido completo", name: "body", widget: "markdown" }
+      - { label: "Resumen", name: "resumen", widget: "text", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  - name: "alertas"
+    label: "Alertas"
+    files:
+      - name: "lista-alertas"
+        label: "Lista de Alertas"
+        file: "_data/alertas.yml"
+        fields:
+          - label: "Alertas"
+            name: "alertas"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Descripción", name: "descripcion", widget: "text" }
+              - { label: "Tipo", name: "tipo", widget: "select", options: ["urgente", "info", "evento"] }
+              - { label: "Fecha", name: "fecha", widget: "datetime" }
